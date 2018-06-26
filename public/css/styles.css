@@ -62,7 +62,13 @@ hr {
 }
 
 .lock-icon {
+  background-image: url('../assets/unlocked.svg');
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: contain;
+  height: 3em;
   margin-bottom: 2em;
+  width: 100%;
 }
 
 .generate-wrapper {
