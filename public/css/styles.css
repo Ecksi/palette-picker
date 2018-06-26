@@ -1,0 +1,148 @@
+* {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  height: 100%;
+}
+
+body {
+  font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+  font-size: 10px;
+}
+
+fieldset,
+legend {
+  border: none;
+}
+
+button {
+  border: .15em solid #000;
+  box-shadow: .2em .2em .3em #636363;
+  cursor: pointer;
+  font-size: 1.25em;
+  height: 2.5em;
+  letter-spacing: .07em;
+  margin: 0;
+  padding: 0;
+  width: 9em;
+}
+
+hr {
+  margin: 4em 0;
+  border: 0;
+  height: .2em;
+  background-image: linear-gradient(to right, rgba(255, 255, 255, 0), rgba(0, 0, 0, 0.75), rgba(255, 255, 255, 0));
+}
+
+.header-text {
+  color: #32bef3;
+  font-size: 4em;
+  text-align: center;
+}
+
+.main-colors {
+  display: flex;
+  justify-content: space-around;
+}
+
+.color-card {
+  border: .3em solid #000;
+  display: flex;
+  flex-direction: column-reverse;
+  height: 35em;
+  padding-bottom: 4em;
+  text-align: center;
+  width: 18%;
+}
+
+.color-value {
+  font-size: 3em;
+}
+
+.lock-icon {
+  margin-bottom: 2em;
+}
+
+.generate-wrapper {
+  text-align: center;
+}
+
+.generate-palette {
+  font-size: 2em;
+  height: 3em;
+  margin: 2em 0;
+  width: 14em;
+}
+
+.save-palette-form {
+  display: flex;
+  justify-content: center;
+}
+
+.save-palette-input,
+.create-palette-input {
+  border: .15em solid #000;
+  height: 3em;
+  letter-spacing: .07em;
+  margin: 0 1em;
+  padding-left: .5em;
+  width: 20em;
+}
+
+.palette-dropdown {
+  height: 3em;
+}
+
+.create-palette-project {
+  margin-bottom: 2em;
+  text-align: center;
+}
+
+.create-palette-legend {
+  font-size: 2em;
+  margin-bottom: .5em;
+  padding-right: 7em;
+}
+
+.split-projects {
+  display: flex;
+  justify-content: space-around;
+}
+
+.projects {
+  display: flex;
+  flex-direction: column;
+}
+
+.saved-project-name {
+  margin-bottom: 1em;
+  font-size: 1.5em;
+  height: 3em;
+  border: .1em solid #000;
+}
+
+.palette-projects {
+  display: flex;
+  justify-content: flex-end;
+  margin: 1em 0;
+}
+
+.saved-palette-title {
+  font-size: 2em;
+  margin-right: .5em;
+  padding-top: .5em;
+}
+
+.saved-palette-colors {
+  border: 2px solid #000;
+  height: 5em;
+  margin-left: .5em;
+  width: 5em;
+}
+
+.delete-saved-palette {
+  margin-top: .5em;
+  margin-left: 1em;
+}
