@@ -7,7 +7,105 @@
   <link rel="stylesheet" type="text/css" media="screen" href="./css/styles.css" />
 </head>
 <body>
-  <h1>Welcome to Palette Picker</h1>
+  <header>
+    <h1 class="header-text">Palette Picker</h1>
+
+    <main class="main-colors">
+      <div class="color-card card-1">
+        <span class="color-value">#FFFFFF</span>
+        <span class="lock-icon">lock</span>
+      </div>
+      <div class="color-card card-2">
+        <span class="color-value">#FFFFFF</span>
+        <span class="lock-icon">lock</span>
+      </div>
+      <div class="color-card card-3">
+        <span class="color-value">#FFFFFF</span>
+        <span class="lock-icon">lock</span>
+      </div>
+      <div class="color-card card-4">
+        <span class="color-value">#FFFFFF</span>
+        <span class="lock-icon">lock</span>
+      </div>
+      <div class="color-card card-5">
+        <span class="color-value">#FFFFFF</span>
+        <span class="lock-icon">lock</span>
+      </div>
+    </main>
+  </header>
+
+  <div class="generate-wrapper">
+    <button class="generate-palette">Genereate New Palette!</button>
+  </div>
+
+  <div class="save-palette-form">
+    <select class="palette-dropdown" name="" id="">
+      <option selected>Select Project</option>
+      <option value="">Project 1</option>
+      <option value="">Project 2</option>
+    </select>
+    <form action="">
+      <input class="save-palette-input" type="text" placeholder="Palette name">
+      <button>Save Palette</button>
+    </form>
+  </div>
+
+  <hr>
+
+  <section class="create-palette-project">
+    <form action="">
+      <fieldset>
+        <legend class="create-palette-legend">Create a new project:</legend>
+          <input class="create-palette-input" type="text" placeholder="New project name">
+          <button>Save Project</button>
+      </fieldset>
+    </form>
+  </section>
+
+  <div class="split-projects">
+    <section class="projects">
+      <div>
+        <button class="saved-project-name">Project 1</button>
+        <div class="palette-projects">
+          <span class="saved-palette-title">Palette 1</span>
+          <div class="saved-palette-colors"></div>
+          <div class="saved-palette-colors"></div>
+          <div class="saved-palette-colors"></div>
+          <div class="saved-palette-colors"></div>
+          <div class="saved-palette-colors"></div>
+          <button class="delete-saved-palette">Trash</button>
+        </div>
+      </div>
+
+      <div>
+        <div class="palette-projects">
+          <span class="saved-palette-title">Warm combo</span>
+          <div class="saved-palette-colors"></div>
+          <div class="saved-palette-colors"></div>
+          <div class="saved-palette-colors"></div>
+          <div class="saved-palette-colors"></div>
+          <div class="saved-palette-colors"></div>
+          <button class="delete-saved-palette">Trash</button>
+        </div>
+      </div>
+    </section>
+
+    <section>
+      <div>
+        <button class="saved-project-name">Project 2</button>
+        <div class="palette-projects">
+          <span class="saved-palette-title">Nature</span>
+          <div class="saved-palette-colors"></div>
+          <div class="saved-palette-colors"></div>
+          <div class="saved-palette-colors"></div>
+          <div class="saved-palette-colors"></div>
+          <div class="saved-palette-colors"></div>
+          <button class="delete-saved-palette">Trash</button>
+        </div>
+      </div>
+    </section>
+  </div>
+
   <script src="/js/scripts.js"></script>
 </body>
 </html>
