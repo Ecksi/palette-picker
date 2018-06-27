@@ -71,6 +71,10 @@ hr {
   width: 100%;
 }
 
+.locked {
+  background-image: url('../assets/locked.svg');
+}
+
 .generate-wrapper {
   text-align: center;
 }
