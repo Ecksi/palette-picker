@@ -1,5 +1,9 @@
 $('.generate-palette').click(() => generatePalette());
-$('.lock-icon').click(function () {$(this).toggleClass('locked')});
+$('.color-card').click(function () {
+  $(this).children()[1].classList[1] !== 'locked'
+    ? $(this).children()[1].classList.add('locked')
+    : $(this).children()[1].classList.remove('locked');
+});
 $('.save-palette-button').click(() => {
   event.preventDefault();
   savePalette();
