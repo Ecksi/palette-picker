@@ -8,6 +8,9 @@ body {
 }
 
 body {
+  background-image: url('https://i.pinimg.com/originals/32/b8/77/32b877ed4aa7778cc7d43ebb7d95a6f1.png');
+  background-size: fill;
+  background-repeat: no-repeat;
   font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
   font-size: 10px;
 }
@@ -18,7 +21,8 @@ legend {
 }
 
 button {
-  border: .15em solid #000;
+  border: .03em solid rgba(51, 51, 51, 0.5);
+  border-radius: 1em;
   box-shadow: .2em .2em .3em #636363;
   cursor: pointer;
   font-size: 1.25em;
@@ -37,42 +41,63 @@ hr {
 }
 
 .header-text {
-  color: #32bef3;
-  font-size: 4em;
+  color: #00426C;
+  font-size: 8em;
+  margin: 0;
+  padding: 0;
+  padding-top: .5em;
   text-align: center;
+  background-clip: text;
+  color: transparent;
+  text-shadow: rgba(255,255,255,0.9) 0 0.03em 0.05em;
 }
 
 .main-colors {
   display: flex;
+  padding: 6em 0;
   justify-content: space-around;
 }
 
 .color-card {
-  border: .3em solid #000;
+  border: .2em solid rgba(51, 51, 51, 0.5);
+  border-radius: 2em;
+  box-shadow: inset 0 0 10px #333;
   display: flex;
   flex-direction: column-reverse;
-  height: 35em;
-  padding-bottom: 4em;
+  height: 30em;
+  padding-bottom: 2.5em;
   text-align: center;
   width: 18%;
 }
 
 .color-value {
-  font-size: 3em;
+  background-color: whitesmoke;
+  box-shadow: inset 0 0 10px #333;
+  font-size: 2.5em;
+  letter-spacing: .05em;
+  padding: .4em 0;
 }
 
 .lock-icon {
+  background-color: whitesmoke;
   background-image: url('../assets/unlocked.svg');
   background-position: center;
   background-repeat: no-repeat;
-  background-size: contain;
-  height: 3em;
-  margin-bottom: 2em;
-  width: 100%;
+  background-size: 65%;
+  border-radius: 2em;
+  box-shadow: inset 0 0 10px #333;
+  height: 4em;
+  margin: 2em auto;
+  width: 4em;
+}
+
+.lock-icon:hover { 
+  transform: scale(1.1);
 }
 
 .locked {
   background-image: url('../assets/locked.svg');
+  transition: all .3s ease-in-out;
 }
 
 .generate-wrapper {
@@ -80,9 +105,10 @@ hr {
 }
 
 .generate-palette {
+  box-shadow: inset 0 0 10px #333;
   font-size: 2em;
   height: 3em;
-  margin: 2em 0;
+  margin-bottom: 2em;
   width: 14em;
 }
 
@@ -93,16 +119,19 @@ hr {
 
 .save-palette-input,
 .create-palette-input {
-  border: .15em solid #000;
+  border: .1em solid #333;
+  border-radius: 1em;
   height: 3em;
   letter-spacing: .07em;
   margin: 0 1em;
-  padding-left: .5em;
+  padding-left: 1em;
   width: 20em;
 }
 
 .palette-dropdown {
+  border: .1em solid #333;
   height: 3em;
+  width: 12em;
 }
 
 .create-palette-project {
@@ -111,9 +140,10 @@ hr {
 }
 
 .create-palette-legend {
-  font-size: 2em;
-  margin-bottom: .5em;
-  padding-right: 7em;
+  color: whitesmoke;
+  font-size: 2.5em;
+  margin-bottom: .8em;
+  padding-right: 3.5em;
 }
 
 .split-projects {
@@ -132,6 +162,7 @@ hr {
   font-size: 1.5em;
   height: 3em;
   margin-bottom: 1em;
+  outline: none;
 }
 
 .palette-projects {
@@ -141,19 +172,23 @@ hr {
 }
 
 .saved-palette-title {
+  color: whitesmoke;
   font-size: 2em;
   margin-right: .5em;
-  padding-top: .5em;
+  padding-top: .6em;
 }
 
 .saved-palette-colors {
-  border: 2px solid #000;
+  border: .2em solid rgba(51, 51, 51, 0.5);
+  border-radius: 2em;
+  box-shadow: inset 0 0 10px #333;
   height: 5em;
   margin-left: .5em;
   width: 5em;
 }
 
 .delete-saved-palette {
+  background-color: rgba(255, 255, 255, 0);
   background-image: url('../assets/trash.svg');
   background-position: center;
   background-repeat: no-repeat;
