@@ -1,20 +1,7 @@
 $('.generate-palette').click(() => generatePalette());
-$('.color-card').click(function () {
-  $(this).children()[1].classList[1] !== 'locked'
-    ? $(this).children()[1].classList.add('locked')
-    : $(this).children()[1].classList.remove('locked');
-});
-$('.save-palette-button').click(() => {
-  event.preventDefault();
-  savePalette();
-  console.log('save palette');
-  // add each card to array save values to project object
-});
-$('.save-project-button').click(() => {
-  event.preventDefault();
-  console.log('save project');
-  // add project w/ palette to endpoint(post)
-});
+$('.color-card').click(() => toggleLock());
+$('.save-palette-button').click(() => savePalette());
+$('.save-project-button').click(() => console.log('save project'));
 $('.delete-saved-palette').click(() => console.log('delete button'));
 
 const generateRandomColor = () => '#' + Math.floor(Math.random() * 16777215).toString(16).toUpperCase();
@@ -31,12 +18,10 @@ const generatePalette = () => {
   });
 };
 
-const savePalette = () => {
-  let newPalette = [];
-
-  $(".color-card").each(function(card) { newPalette.push(this.innerText) });
-
-  console.log(newPalette);
-};
+const toggleLock = () => {
+  $(this).children()[1].classList[1] !== 'locked'
+    ? $(this).children()[1].classList.add('locked')
+    : $(this).children()[1].classList.remove('locked');
+}
 
 generatePalette();
