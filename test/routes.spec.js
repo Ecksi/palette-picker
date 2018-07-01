@@ -2,8 +2,7 @@ const chai = require('chai');
 const should = chai.should();
 const chaiHttp = require('chai-http');
 const server = require('../server');
-const knex = require('../db/')
-const config = require('../knexfile')[environment];
+const config = require('../knexfile')[process.env.NODE_ENV = 'test'];
 const knex = require('knex')(config)
 
 chai.use(chaiHttp);
@@ -30,7 +29,38 @@ describe('CLIENT routes', () => {
 });
 
 describe('API routes', () => {
-  describe('GET /api/v1/projects', () => {});
+
+  beforeEach(done => {
+    knex.migrate.rollback()
+      .then(() => {
+        knex.migrate.latest()
+          .then(() => {
+            return knex.seed.run()
+              .then(() => { done() });
+          });
+      });
+  });
+
+  afterEach(done => {
+    knex.migrate.rollback()
+      .then(() => { done() });
+  });
+
+  describe('GET /api/v1/projects', () => {
+    it('should return an array of all projects', done => {
+      chai.request(server)
+        .get('/api/v1/projects')
+        .end((error, response) => {
+          response.should.have.status(200);
+          response.should.be.json;
+          response.body.should.be.a('array');
+          response.body.length.should.equal(1);
+          response.body[0].should.have.property('name');
+          response.body[0].name.should.equal('Almost out');
+          done();
+        });
+    });
+  });
 
   describe('GET /api/v1/palettes', () => {});
 
