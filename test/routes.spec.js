@@ -2,6 +2,9 @@ const chai = require('chai');
 const should = chai.should();
 const chaiHttp = require('chai-http');
 const server = require('../server');
+const knex = require('../db/')
+const config = require('../knexfile')[environment];
+const knex = require('knex')(config)
 
 chai.use(chaiHttp);
 
@@ -34,5 +37,7 @@ describe('API routes', () => {
   describe('POST /api/v1/projects', () => {});
 
   describe('POST /api/v1/palettes', () => {});
+
+  describe('DELETE /api/v1/palettes', () => {});
 
 });
