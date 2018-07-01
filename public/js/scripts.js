@@ -32,7 +32,33 @@ const fetchProjects = async () => {
     `)
     addProjectOptions(name, id);
   })
+
+  fetchPalettes();
 };
+
+const fetchPalettes = async () => {
+  const url = '/api/v1/palettes';
+  const response = await (fetch(url));
+  const palettes = await response.json();
+
+  await palettes.forEach(palette =>
+    appendPalette(palette)
+  )
+}
+
+const appendPalette = palette => {
+  $(`.the-projects-${palette.project_id}`).append(`
+    <div class="palette-projects">
+      <span class="saved-palette-title">${palette.name}</span>
+      <div class="saved-palette-colors" style="background-color: ${palette['color1']};"}></div>
+      <div class="saved-palette-colors" style="background-color: ${palette['color2']};"}></div>
+      <div class="saved-palette-colors" style="background-color: ${palette['color3']};"}></div>
+      <div class="saved-palette-colors" style="background-color: ${palette['color4']};"}></div>
+      <div class="saved-palette-colors" style="background-color: ${palette['color5']};"}></div>
+      <button class="delete-saved-palette palette-${palette.id}"></button>
+    </div>
+  `)
+}
 
 const addProjectOptions = (projectName, projectId) => {
   const project = `<option value=${projectId}>${projectName}</option>`
