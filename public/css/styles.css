@@ -118,7 +118,7 @@ hr {
 }
 
 .save-palette-input,
-.create-palette-input {
+.save-project-input {
   border: .1em solid #333;
   border-radius: 1em;
   height: 3em;
@@ -134,12 +134,12 @@ hr {
   width: 12em;
 }
 
-.create-palette-project {
+.save-project {
   margin-bottom: 2em;
   text-align: center;
 }
 
-.create-palette-legend {
+.save-project-legend {
   color: whitesmoke;
   font-size: 2.5em;
   margin-bottom: .8em;
