@@ -36,6 +36,23 @@ const fetchProjects = async () => {
   fetchPalettes();
 };
 
+const addProject = async () => {
+  event.preventDefault();
+  const projectName = $('.save-project-input').val();
+  const url = '/api/v1/projects';
+  const options = {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify({ projects: { name: projectName } }),
+  }
+
+  const response = await fetch(url, options);
+  const projectId = await response.json();
+
+  addProjectOptions(projectName, projectId.id)
+  $('.save-project-input').val('');
+}
+
 const fetchPalettes = async () => {
   const url = '/api/v1/palettes';
   const response = await (fetch(url));
