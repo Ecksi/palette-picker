@@ -1,7 +1,11 @@
 $('.generate-palette').click(() => generatePalette());
-$('.color-card').click(() => toggleLock());
-$('.save-palette-button').click(() => savePalette());
-$('.save-project-button').click(() => console.log('save project'));
+$('.color-card').click(function () {
+  $(this).children()[1].classList[1] !== 'locked'
+    ? $(this).children()[1].classList.add('locked')
+    : $(this).children()[1].classList.remove('locked');
+});
+$('.save-palette-button').click(() => { savePalette();});
+$('.save-project-button').click(() => {});
 $('.delete-saved-palette').click(() => console.log('delete button'));
 
 const generateRandomColor = () => '#' + Math.floor(Math.random() * 16777215).toString(16).toUpperCase();
@@ -18,10 +22,6 @@ const generatePalette = () => {
   });
 };
 
-const toggleLock = () => {
-  $(this).children()[1].classList[1] !== 'locked'
-    ? $(this).children()[1].classList.add('locked')
-    : $(this).children()[1].classList.remove('locked');
-}
+const savePalette = () => {};
 
 generatePalette();
