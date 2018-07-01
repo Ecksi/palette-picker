@@ -88,7 +88,22 @@ describe('API routes', () => {
     });
   });
 
-  describe('POST /api/v1/projects', () => {});
+  describe('POST /api/v1/projects', () => {
+    it('should post a new project to the database', done => {
+      chai.request(server)
+        .post('/api/v1/projects')
+        .send({
+          projects: { name: 'dr. kalamazoos wild ride'}
+        })
+        .end((error, response) => {
+          response.should.have.status(201);
+          response.body.should.be.a('object');
+          response.body.should.have.property('id');
+          response.body.id.should.equal(2);
+          done();
+        });
+    });
+  });
 
   describe('POST /api/v1/palettes', () => {});
 
