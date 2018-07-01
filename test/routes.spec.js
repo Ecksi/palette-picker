@@ -139,6 +139,17 @@ describe('API routes', () => {
           done();
         });
     });
+
+    it('should not post a new palette if no title is provided', done => {
+      chai.request(server)
+        .post('/api/v1/palettes')
+        .send({palette: {}})
+        .end((error, response) => {
+          response.should.have.status(422);
+          response.body.error.should.equal('Expected format: { name: <String>, color1: <String>, color2 <String>, color3: <String>, color4: <String>, color5: <String> }. "name" property missing.');
+          done();
+        });
+    });
   });
 
   describe('DELETE /api/v1/palettes', () => {});
