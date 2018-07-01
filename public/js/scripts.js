@@ -53,6 +53,33 @@ const addProject = async () => {
   $('.save-project-input').val('');
 }
 
+const addPalette = () => {
+  event.preventDefault();
+  const paletteName = $('.save-palette-input').val();
+  const url = '/api/v1/palettes';
+  const paletteBody = {
+    palette: {
+      name: paletteName,
+      color1: $('.color-value')[0].innerText,
+      color2: $('.color-value')[1].innerText,
+      color3: $('.color-value')[2].innerText,
+      color4: $('.color-value')[3].innerText,
+      color5: $('.color-value')[4].innerText,
+      project_id: $('.palette-dropdown option:selected').val()
+    }
+  }
+  const options = {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify(paletteBody),
+  }
+
+  fetch(url, options);
+  $('.save-palette-input').val('');
+
+  appendPalette(paletteBody.palette);
+}
+
 const fetchPalettes = async () => {
   const url = '/api/v1/palettes';
   const response = await (fetch(url));
