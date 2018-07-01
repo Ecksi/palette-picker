@@ -116,7 +116,30 @@ describe('API routes', () => {
     });
   });
 
-  describe('POST /api/v1/palettes', () => {});
+  describe('POST /api/v1/palettes', () => {
+    it('should post a new palette to the database', done => {
+      chai.request(server)
+        .post('/api/v1/palettes')
+        .send({
+          palette: {
+            name: "i am test palette",
+            color1: "#FFFFFF",
+            color2: "#000000",
+            color3: "#BADA55",
+            color4: "#B0BB0B",
+            color5: "#123456",
+            project_id: 1,
+          }
+        })
+        .end((error, response) => {
+          response.should.have.status(201);
+          response.body.should.be.a('object');
+          response.body.should.have.property('id');
+          response.body.id.should.equal(3);
+          done();
+        });
+    });
+  });
 
   describe('DELETE /api/v1/palettes', () => {});
 
