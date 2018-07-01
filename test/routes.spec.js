@@ -36,14 +36,14 @@ describe('API routes', () => {
         knex.migrate.latest()
           .then(() => {
             return knex.seed.run()
-              .then(() => { done() });
+              .then(() => done());
           });
       });
   });
 
   afterEach(done => {
     knex.migrate.rollback()
-      .then(() => { done() });
+      .then(() => done());
   });
 
   describe('GET /api/v1/projects', () => {
@@ -62,7 +62,31 @@ describe('API routes', () => {
     });
   });
 
-  describe('GET /api/v1/palettes', () => {});
+  describe('GET /api/v1/palettes', () => {
+    it('should return an array of all palettes', done => {
+      chai.request(server)
+        .get('/api/v1/palettes')
+        .end((error, response) => {
+          response.should.have.status(200);
+          response.should.be.json;
+          response.body.should.be.a('array');
+          response.body.length.should.equal(2);
+          response.body[0].should.have.property('name');
+          response.body[0].name.should.equal('not winter');
+          response.body[0].should.have.property('color1');
+          response.body[0].color1.should.equal('#CFDEE7');
+          response.body[0].should.have.property('color2');
+          response.body[0].color2.should.equal('#92B4F4');
+          response.body[0].should.have.property('color3');
+          response.body[0].color3.should.equal('#5E7CE2');
+          response.body[0].should.have.property('color4');
+          response.body[0].color4.should.equal('#4472CA');
+          response.body[0].should.have.property('color5');
+          response.body[0].color5.should.equal('#0A369D');
+          done();
+        });
+    });
+  });
 
   describe('POST /api/v1/projects', () => {});
 
