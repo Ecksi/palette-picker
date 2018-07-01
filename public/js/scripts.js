@@ -36,6 +36,12 @@ const fetchProjects = async () => {
   fetchPalettes();
 };
 
+const addProjectOptions = (projectName, projectId) => {
+  const project = `<option value=${projectId}>${projectName}</option>`
+
+  $('.palette-dropdown').append(project);
+};
+
 const addProject = async () => {
   event.preventDefault();
   const projectName = $('.save-project-input').val();
@@ -104,11 +110,18 @@ const appendPalette = palette => {
   `)
 }
 
-const addProjectOptions = (projectName, projectId) => {
-  const project = `<option value=${projectId}>${projectName}</option>`
+const deletePalette = function () {
+  const paletteId = $(this)[0].classList[1].split('-')[1];
+  const url = `/api/v1/palettes/${paletteId}`;
+  const options = {
+    method: 'DELETE',
+    headers: { 'Content-Type': 'application/json' },
+  }
 
-  $('.palette-dropdown').append(project);
-};
+  fetch(url, options)
+
+  $(this).parent().remove();
+}
 
 $('.generate-palette').on('click', generatePalette);
 $('.color-card').on('click', toggleLock);
