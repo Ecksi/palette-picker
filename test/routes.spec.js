@@ -41,11 +41,6 @@ describe('API routes', () => {
       });
   });
 
-  afterEach(done => {
-    knex.migrate.rollback()
-      .then(() => done());
-  });
-
   describe('GET /api/v1/projects', () => {
     it('should return an array of all projects', done => {
       chai.request(server)
@@ -152,6 +147,18 @@ describe('API routes', () => {
     });
   });
 
-  describe('DELETE /api/v1/palettes', () => {});
+  describe('DELETE /api/v1/palettes/:id', () => {
+    it('should remove a palette from the database', done => {
+      chai.request(server)
+        .delete('/api/v1/palettes/3')
+        .end((error, response) => {
+          response.should.have.status(202);
+          response.type.should.equal('application/json');
+          response.body.should.have.property('id');
+          response.body.id.should.equal('3');
+          done();
+        });
+    });
+  });
 
 });
