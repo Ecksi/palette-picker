@@ -103,6 +103,17 @@ describe('API routes', () => {
           done();
         });
     });
+
+    it('should not post a new project if no title is provided', done => {
+      chai.request(server)
+        .post('/api/v1/projects')
+        .send({projects:{}})
+        .end((error, response) => {
+          response.should.have.status(422);
+          response.body.error.should.equal('Expected format: { name: <String> }. "name" property missing.');
+          done();
+        });
+    });
   });
 
   describe('POST /api/v1/palettes', () => {});
