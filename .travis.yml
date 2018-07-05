@@ -1,3 +1,9 @@
 language: node_js
 node_js:
   - "9.4.0"
+services:
+  - postgresql
+before_script:
+  - psql -c 'CREATE DATABASE palettepicker;' -U postgres
+addons:
+  postgresql: "10.4"
